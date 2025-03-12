@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('module', include('modular_engine.urls'), name='modular_engine'),
     path('module/product', include('module_product.urls'), name='module_product'),
-    path('module_not_installed/', module_not_installed, name='module_not_installed'),
+    path('module_not_installed/', module_not_installed, name='not_installed'),
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('', lambda request: HttpResponseRedirect('/module')),  # Redirect root URL to /module

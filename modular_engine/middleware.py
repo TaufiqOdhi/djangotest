@@ -14,7 +14,7 @@ class ModuleMiddleware:
             try:
                 app_module = AppModule.objects.get(name=module_name)
                 if not app_module.is_installed:
-                    return redirect('module_not_installed')  # Redirect to a "not installed" page
+                    return redirect('not_installed')  # Redirect to a "not installed" page
             except AppModule.DoesNotExist:
                 pass  # If the module does not exist, continue as normal
 

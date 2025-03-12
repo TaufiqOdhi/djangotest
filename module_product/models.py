@@ -6,6 +6,7 @@ class Product(models.Model):
     barcode = models.CharField(max_length=225, null=True, blank=True)
     price = models.PositiveBigIntegerField(default=0)
     stock = models.PositiveIntegerField(default=0)
+    # test_field = models.CharField(max_length=225, null=True, blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

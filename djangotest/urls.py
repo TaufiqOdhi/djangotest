@@ -16,9 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
+def module_not_installed(request):
+    return HttpResponse("This module is not installed.", status=403)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('module', include('modular_engine.urls')),
-    path('module/product', include('module_product.urls')),
+    path('module', include('modular_engine.urls'), name='modular_engine'),
+    path('module/product', include('module_product.urls'), name='module_product'),
+    path('module_not_installed/', module_not_installed, name='module_not_installed'),
 ]

@@ -8,23 +8,26 @@
             document.getElementById(modalId).classList.remove('hidden');
             document.getElementById('modalTitle').innerText = action === 'create' ? 'Create Product' : 'Update Product';
             document.getElementById('modalAction').value = action;
-            if (action === 'update' && product) {
+
+            if (product) {
                 document.getElementById('productId').value = product.id;
-                document.getElementById('name').value = product.name;
-                document.getElementById('barcode').value = product.barcode;
-                document.getElementById('price').value = product.price;
-                document.getElementById('stock').value = product.stock;
+                for (const [key, value] of Object.entries(product)) {
+                    const field = document.getElementById(`id_${key}`);
+                    if (field) {
+                        field.value = value;
+                    }
+                }
             } else {
                 document.getElementById('productId').value = '';
-                document.getElementById('name').value = '';
-                document.getElementById('barcode').value = '';
-                document.getElementById('price').value = '';
-                document.getElementById('stock').value = '';
+                const fields = document.querySelectorAll('#productModal input[type="text"], #productModal input[type="number"]');
+                fields.forEach(field => field.value = '');
             }
         }
+
         function closeModal(modalId) {
             document.getElementById(modalId).classList.add('hidden');
         }
+
         function openDeleteModal(productId) {
             document.getElementById('deleteModal').classList.remove('hidden');
             document.getElementById('deleteProductId').value = productId;
@@ -70,22 +73,7 @@
                 {% csrf_token %}
                 <input type="hidden" id="modalAction" name="action" value="create">
                 <input type="hidden" id="productId" name="product_id">
-                <div class="mb-4">
-                    <label class="block text-gray-700">Name</label>
-                    <input type="text" id="name" name="name" class="w-full border border-gray-300 p-2 rounded">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700">Barcode</label>
-                    <input type="text" id="barcode" name="barcode" class="w-full border border-gray-300 p-2 rounded">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700">Price</label>
-                    <input type="text" id="price" name="price" class="w-full border border-gray-300 p-2 rounded">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700">Stock</label>
-                    <input type="text" id="stock" name="stock" class="w-full border border-gray-300 p-2 rounded">
-                </div>
+                {{ form.as_p }}
                 <div class="flex justify-end">
                     <button type="button" onclick="closeModal('productModal')" class="bg-gray-500 text-white px-4 py-2 rounded mr-2">Cancel</button>
                     <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Save</button>

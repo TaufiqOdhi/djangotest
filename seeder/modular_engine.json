@@ -1,0 +1,13 @@
+[
+    {
+        "model": "modular_engine.appmodule",
+        "pk": 1,
+        "fields": {
+            "name": "product",
+            "is_installed": false,
+            "created_at": "2025-03-12T15:52:31.373Z",
+            "updated_at": "2025-03-12T20:32:59.226Z",
+            "deleted_at": null
+        }
+    }
+]

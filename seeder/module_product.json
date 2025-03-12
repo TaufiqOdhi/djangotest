@@ -1,0 +1,54 @@
+[
+    {
+        "model": "module_product.product",
+        "pk": 1,
+        "fields": {
+            "name": "Tahu",
+            "barcode": "None",
+            "price": 2500,
+            "stock": 50,
+            "created_at": "2025-03-12T16:09:23.297Z",
+            "updated_at": "2025-03-12T18:32:29.931Z",
+            "deleted_at": null
+        }
+    },
+    {
+        "model": "module_product.product",
+        "pk": 2,
+        "fields": {
+            "name": "Tempe",
+            "barcode": "",
+            "price": 2000,
+            "stock": 75,
+            "created_at": "2025-03-12T18:32:45.127Z",
+            "updated_at": "2025-03-12T18:32:45.127Z",
+            "deleted_at": null
+        }
+    },
+    {
+        "model": "module_product.product",
+        "pk": 3,
+        "fields": {
+            "name": "ngasal aja",
+            "barcode": "None",
+            "price": 123123,
+            "stock": 12312,
+            "created_at": "2025-03-12T18:36:30.194Z",
+            "updated_at": "2025-03-12T19:50:50.504Z",
+            "deleted_at": "2025-03-12T19:50:50.504Z"
+        }
+    },
+    {
+        "model": "module_product.product",
+        "pk": 4,
+        "fields": {
+            "name": "product asalan",
+            "barcode": "312",
+            "price": 123123,
+            "stock": 4564564,
+            "created_at": "2025-03-12T19:50:14.384Z",
+            "updated_at": "2025-03-12T19:50:57.844Z",
+            "deleted_at": "2025-03-12T19:50:57.844Z"
+        }
+    }
+]

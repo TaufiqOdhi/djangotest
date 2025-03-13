@@ -38,7 +38,9 @@
     {% include 'app_bar.html' %}
     <div class="container mx-auto p-4">
         <h1 class="text-2xl font-bold mb-4">Product List</h1>
+        {% if level_user == 'superuser' or 'manager' or 'user' %}
         <button onclick="openModal('productModal', 'create')" class="bg-blue-500 text-white px-4 py-2 rounded mb-4">Create</button>
+        {% endif %}
         <table class="table-auto min-w-full bg-white border border-gray-200">
             <thead class="bg-gray-800 text-white">
                 <tr>
@@ -57,8 +59,12 @@
                     <td class="px-4 py-2 border-b">{{ product.price }}</td>
                     <td class="px-4 py-2 border-b">{{ product.stock }}</td>
                     <td class="px-4 py-2 border-b">
+                        {% if level_user == 'superuser' or 'manager' or 'user' %}
                         <button onclick="openModal('productModal', 'update', { id: '{{ product.id }}', name: '{{ product.name }}', barcode: '{{ product.barcode }}', price: '{{ product.price }}', stock: '{{ product.stock }}' })" class="bg-yellow-500 text-white px-4 py-2 rounded">Update</button>
+                        {% endif %}
+                        {% if level_user == 'superuser' or 'manager' %}
                         <button onclick="openDeleteModal('{{ product.id }}')" class="bg-red-500 text-white px-4 py-2 rounded">Delete</button>
+                        {% endif %}
                     </td>
                 </tr>
                 {% endfor %}

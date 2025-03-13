@@ -9,6 +9,7 @@
         <ul class="flex justify-end items-center text-white">
             {% if user.is_authenticated %}
                 <li class="mr-4">Welcome, {{ user.username }}</li>
+                <li class="mr-4"><a href="{% url 'modular_engine' %}" class="text-blue-400 hover:text-blue-200">Modular Engine</a></li>
                 <li><a href="{% url 'logout' %}" class="text-blue-400 hover:text-blue-200">Logout</a></li>
             {% else %}
                 <li><a href="{% url 'login' %}" class="text-blue-400 hover:text-blue-200">Login</a></li>

@@ -1,6 +1,7 @@
 from datetime import datetime
 from django.shortcuts import render, redirect
 from django.views import View
+from django.contrib import messages
 from djangotest.utils import check_level_user
 from .models import Product
 from .forms import ProductForm
@@ -29,10 +30,13 @@ class IndexView(View):
 
         if action == 'create':
             self.create(form_data=form_data, level_user=level_user)
+            messages.success(request, 'Product created successfully.')
         elif action == 'update':
             self.update(form_data=form_data, product_id=product_id, level_user=level_user)
+            messages.success(request, 'Product updated successfully.')
         elif action == 'delete':
             self.delete(product_id=product_id, level_user=level_user)
+            messages.success(request, 'Product deleted successfully.')
         
         return redirect('module_product')
     

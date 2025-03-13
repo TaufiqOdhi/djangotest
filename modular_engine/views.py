@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.core.management import call_command
+from django.contrib import messages
 from .models import AppModule
 
 # Create your views here.
@@ -20,10 +21,13 @@ class IndexView(View):
         
         if action == 'install':
             self.install(app_module)
+            messages.success(request, 'App module installed successfully.')
         elif action == 'uninstall':
             self.uninstall(app_module)
+            messages.success(request, 'App module uninstalled successfully.')
         elif action == 'upgrade':
             self.upgrade(app_module)
+            messages.success(request, 'App module upgraded successfully.')
         
         return redirect('modular_engine')
     

@@ -1,13 +1,13 @@
 {
     "builds": [{
-        "src": "djangotest/wsgi.py",
+        "src": "djangotest/asgi.py",
         "use": "@vercel/python",
         "config": { "maxLambdaSize": "15mb", "runtime": "python3.12" }
     }],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "djangotest/wsgi.py"
+            "dest": "djangotest/asgi.py"
         }
     ]
 }

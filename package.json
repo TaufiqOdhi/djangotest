@@ -1,0 +1,6 @@
+{
+    "scripts": {
+      "build": "python manage.py migrate && bash scripts/load_seeder_data.sh --noinput"
+    }
+  }
+  
